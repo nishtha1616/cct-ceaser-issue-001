@@ -1,49 +1,21 @@
 # cct-ceaser-issue-001
-# Caesar Cipher Tool 🔐
+# 🔐 Caesar Cipher (Python Version)
 
-A simple and interactive Caesar Cipher tool built with HTML, CSS, and JavaScript. This project allows users to encrypt and decrypt text using the classical Caesar Cipher method.
+A simple command-line Caesar Cipher tool in Python that supports both encryption and decryption of messages.
 
-## 🚀 Features
+---
+## 🛠 Features
+- Encrypt and decrypt text with a customizable shift value
+- Keeps punctuation, spacing, and case
+- Easy to run on any machine with Python installed
 
-- Encrypt plain text with a shift key
-- Decrypt ciphertext easily
-- Web-based UI with simple design
-- Responsive and interactive
+---
+## 📦 Requirements
+- Python 3.x (no external libraries needed)
 
-## 🧠 What is Caesar Cipher?
+---
 
-The Caesar Cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet.
+## 🚀 How to Run
 
-For example, with a shift of 3:
-
-Plaintext : ABCDEFGHIJKLMNOPQRSTUVWXYZ
-
-Ciphertext: DEFGHIJKLMNOPQRSTUVWXYZABC
-
-## 🛠 Technologies Used
-
-- HTML
-- CSS
-- JavaScript (Vanilla)
-
-## 🖥 Live Preview
-
-🔗 [Live [ceaser cipher tool view](https://github.com/user-attachments/assets/299579bb-ea60-419f-a71d-f671c051fc2f)
-hments/files/20885542/Screen.Recording.2025-06-24.194145.zip)
-Demo](#) 
-## 📂 File Structure
-caesar-cipher-tool/
-│
-├── index.html → Structure of the tool
-├── style.css → Styling (black and white aesthetic)
-├── script.js → Caesar cipher logic (encrypt & decrypt)
-├── assets/ → Decorative icons (black & white)
-└── README.md → Documentation
-
-
-## 🧩 How to Use
-
-1. Clone the repo:
-git clone https://github.com/nishtha1616/cct-caesar-issue-001.git
-2. Open index.html in your browser.
-3. Enter text and a shift key, then click Encrypt or Decrypt.
+```bash
+python caesar_cipher.py
