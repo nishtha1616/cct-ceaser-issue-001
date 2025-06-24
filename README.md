@@ -15,7 +15,9 @@ A simple and interactive Caesar Cipher tool built with HTML, CSS, and JavaScript
 The Caesar Cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of places down the alphabet.
 
 For example, with a shift of 3:
+
 Plaintext : ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
 Ciphertext: DEFGHIJKLMNOPQRSTUVWXYZABC
 
 ## 🛠 Technologies Used
