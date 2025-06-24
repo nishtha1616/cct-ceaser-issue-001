@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Caesar Cipher Tool</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1a1a1a;
+      color: #ffffffe8;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(62, 205, 249, 0.859);
+    }
+
+    /* Light transparent emoji background */
+    body::before {
+      content: "🔐  🔑  🔒  📜  🛡️  🔁  🔍  🧩  ⌛  ⚙️  ✉️  🕵️‍♂️";
+      color: rgba(255, 255, 255, 0.088);
+      font-size: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      white-space: pre-wrap;
+      text-align: center;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      font-size: 32px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #dadae1;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #41c1f8;
+    }
+
+    #result {
+      background-color: #121212;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+      border: 1px solid #555;
+      font-size: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #888;
+      position: relative;
+      z-index: 1;
+    }
+
+    .decor-line {
+      font-size: 20px;
+      text-align: center;
+      color: #444;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Caesar Cipher Encryption Tool</h1>
+  <div class="decor-line">🔐🛡️</div>
+
+  <label for="message">📜 Enter your message:</label>
+  <textarea id="message" rows="4" placeholder="Type your secret message..."></textarea>
+
+  <label for="shift">🔑 Shift value:</label>
+  <input type="number" id="shift" value="3" min="1" max="25">
+
+  <label for="mode">🔁 Choose mode:</label>
+  <select id="mode">
+    <option value="encrypt">🔒 Encrypt</option>
+    <option value="decrypt">🔓 Decrypt</option>
+  </select>
+
+  <button onclick="runCipher()">⚙️ Run Cipher</button>
+
+  <div id="result"></div>
+
+  <script>
+    function caesarCipher(text, shift, mode) {
+      let result = "";
+
+      for (let i = 0; i < text.length; i++) {
+        let char = text[i];
+
+        if (char.match(/[a-z]/i)) {
+          const code = text.charCodeAt(i);
+          const isUpper = (code >= 65 && code <= 90);
+          const base = isUpper ? 65 : 97;
+
+          if (mode === "encrypt") {
+            result += String.fromCharCode((code - base + shift) % 26 + base);
+          } else {
+            result += String.fromCharCode((code - base - shift + 26) % 26 + base);
+          }
+        } else {
+          result += char;
+        }
+      }
+
+      return result;
+    }
+
+    function runCipher() {
+      const message = document.getElementById("message").value;
+      const shift = parseInt(document.getElementById("shift").value);
+      const mode = document.getElementById("mode").value;
+
+      if (!message.trim()) {
+        alert("Please enter a message.");
+        return;
+      }
+
+      const output = caesarCipher(message, shift, mode);
+      document.getElementById("result").innerText = `Result (${mode}ed): ${output}`;
+    }
+  </script>
+
+</body>
+</html>
