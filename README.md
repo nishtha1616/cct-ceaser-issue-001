@@ -1,4 +1,4 @@
-# cct-ceaser-issue-001
+# cct-ceaser-cipher-001
 # 🔐 Caesar Cipher (Python Version)
 
 A simple command-line Caesar Cipher tool in Python that supports both encryption and decryption of messages.
